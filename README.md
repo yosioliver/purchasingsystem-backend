@@ -7,17 +7,32 @@ This is the Repository for the Backend Stack for The Phone Balance Purchasing Sy
 For Database :
   - PostgreSQL 11 (PostgreSQL 10 will be ok)
   - you can install here : [Download PostgreSQL](https://www.postgresql.org/download/)
-  - Or, if you using MacOS Machine you can install brew here : [Download Brew](https://www.postgresql.org/download/)
+  - Or, if you using MacOS Machine you can install brew here : [Download Brew](https://brew.sh)
+  - After brew installed on your MacOS Machine, type the command below for installing PostgreSQL 11 :
 
+```sh
+$ brew install postgresql@11
+```
+Setup your Database :
+  - You can use DBeaver for Administering your PostgreSQL Database
+  - you can install DBeaver here : [Download DBeaver](https://dbeaver.io/download/)
+ 
 For Backend API / REST Api : 
   - .Net Core Framework Version 3.1
-  - You can install here : [Download .Net Core SDK](https://dotnet.microsoft.com/download) - Please choose version : 3.1 for the compability with this Project (Because this Project build with .Net Core Version 3.1)
+  - You can install here : [Download .Net Core SDK](https://dotnet.microsoft.com/download) - Please choose version : 3.1 for the compability with this Project (Because this Project built with .Net Core Version 3.1)
 
 
-You can also:
-  - Import and save files from GitHub, Dropbox, Google Drive and One Drive
-  - Drag and drop markdown and HTML files into Dillinger
-  - Export documents as Markdown, HTML and PDF
+After successfully installing .Net Core SDK, type the command below on your terminal/console :
+
+```sh
+$ dotnet --version
+```
+
+After that, if .Net Core SDK installed successfully, you will prompted as below on your terminal/console :
+
+```sh
+$ 3.1.0
+```
 
 Markdown is a lightweight markup language based on the formatting conventions that people naturally use in email.  As [John Gruber] writes on the [Markdown site][df1]
 
