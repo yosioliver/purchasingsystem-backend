@@ -1,6 +1,6 @@
 # purchasingsystem-backend
 
-This is the Repository for the Backend Stack for The.
+This is the Repository for the Backend Stack for The Phone Balance Purchasing System.
 
 # Requierements
 
