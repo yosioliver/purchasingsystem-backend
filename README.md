@@ -28,7 +28,14 @@ Usually the Default Database is postgres, Username is like your computer name (i
 
 ![Postgre](https://i.ibb.co/6B15XRN/Screen-Shot-2021-01-15-at-15-28-20.png)
 
-Next step is Creating New Role (in this case )
+Next step is Creating New Role (in this case my role username is purchasingsysusr, my password is PurchasingSys1234!@#$), please see image below for detail : 
+
+![Postgre](https://i.ibb.co/G9LNM5r/Screen-Shot-2021-01-17-at-19-47-29.png)
+
+After Creating New Role, then you need to create new Database (in this case my database name. : purchasingsysdb), set Owner for purchasingsysdb To purchasingsysusr.
+Please see image below for detail : 
+
+![Postgre](https://i.ibb.co/Prz4CLf/Screen-Shot-2021-01-17-at-19-47-08.png)
 
 For Backend API / REST Api : 
   - .Net Core Framework Version 3.1
@@ -181,27 +188,3 @@ MIT
 
 
 **Free Software, Hell Yeah!**
-
-[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
-
-
-   [dill]: <https://github.com/joemccann/dillinger>
-   [git-repo-url]: <https://github.com/joemccann/dillinger.git>
-   [john gruber]: <http://daringfireball.net>
-   [df1]: <http://daringfireball.net/projects/markdown/>
-   [markdown-it]: <https://github.com/markdown-it/markdown-it>
-   [Ace Editor]: <http://ace.ajax.org>
-   [node.js]: <http://nodejs.org>
-   [Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
-   [jQuery]: <http://jquery.com>
-   [@tjholowaychuk]: <http://twitter.com/tjholowaychuk>
-   [express]: <http://expressjs.com>
-   [AngularJS]: <http://angularjs.org>
-   [Gulp]: <http://gulpjs.com>
-
-   [PlDb]: <https://github.com/joemccann/dillinger/tree/master/plugins/dropbox/README.md>
-   [PlGh]: <https://github.com/joemccann/dillinger/tree/master/plugins/github/README.md>
-   [PlGd]: <https://github.com/joemccann/dillinger/tree/master/plugins/googledrive/README.md>
-   [PlOd]: <https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md>
-   [PlMe]: <https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md>
-   [PlGa]: <https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md>
