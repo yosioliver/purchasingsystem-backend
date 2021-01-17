@@ -157,4 +157,4 @@ License
 MIT
 
 
-**Made with Love by Free Software**
+**Made with Love by Free Software Technologies Stack**
