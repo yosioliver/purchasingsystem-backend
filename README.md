@@ -15,8 +15,21 @@ $ brew install postgresql@11
 ```
 Setup your Database :
   - You can use DBeaver for Administering your PostgreSQL Database
-  - you can install DBeaver here : [Download DBeaver](https://dbeaver.io/download/)
- 
+  - You can install DBeaver here : [Download DBeaver](https://dbeaver.io/download/)
+  - After installing DBeaver, you can setup the Database (please see images below for the instruction)
+
+![Postgre](https://i.ibb.co/vwz9Xns/Screen-Shot-2021-01-17-at-19-27-58.png)
+
+On the image above, Select PostgreSQL for your Database Connection, after that you can fill the information like the image below : 
+
+![Postgre](https://i.ibb.co/F8jhhDk/Screen-Shot-2021-01-17-at-19-35-37.png)
+
+Usually the Default Database is postgres, Username is like your computer name (in this case my computer name is : yosioliver) Then click Test Connection, if your fill the information correctly, pop up will appear like the image below : 
+
+![Postgre](https://i.ibb.co/6B15XRN/Screen-Shot-2021-01-15-at-15-28-20.png)
+
+Next step is Creating New Role (in this case )
+
 For Backend API / REST Api : 
   - .Net Core Framework Version 3.1
   - You can install here : [Download .Net Core SDK](https://dotnet.microsoft.com/download) - Please choose version : 3.1 for the compability with this Project (Because this Project built with .Net Core Version 3.1)
