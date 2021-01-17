@@ -54,132 +54,102 @@ After that, if .Net Core SDK installed successfully, you will prompted as below 
 $ 3.1.0
 ```
 
-Markdown is a lightweight markup language based on the formatting conventions that people naturally use in email.  As [John Gruber] writes on the [Markdown site][df1]
+Open your Project with Visual Studio Code or Visual Studio Community For Mac/Windows (FREE)
 
-> The overriding design goal for Markdown's
-> formatting syntax is to make it as readable
-> as possible. The idea is that a
-> Markdown-formatted document should be
-> publishable as-is, as plain text, without
-> looking like it's been marked up with tags
-> or formatting instructions.
+> I will recommend Visual Studio Community For Mac/Windows, because it is really powerfull for the Project that built with .Net Core Framework (you only need to click for clean, build and publish the .Net Core Projects)
 
-This text you see here is *actually* written in Markdown! To get a feel for Markdown's syntax, type some text into the left window and watch the results in the right.
+You can download Visual Studio Code here : [Download Visual Studio Code](https://code.visualstudio.com)
 
-### Tech
+### Open your Project on IDE (VS Code / VS Community for Mac/Windows)
 
-Dillinger uses a number of open source projects to work properly:
+On the Visual Studio Community for Mac/Windows you can choose/pick *.sln (solution file) file. 
+In this case the Project Name is PurchasingSystemServices.sln
 
-* [AngularJS] - HTML enhanced for web apps!
-* [Ace Editor] - awesome web-based text editor
-* [markdown-it] - Markdown parser done right. Fast and easy to extend.
-* [Twitter Bootstrap] - great UI boilerplate for modern web apps
-* [node.js] - evented I/O for the backend
-* [Express] - fast node.js network app framework [@tjholowaychuk]
-* [Gulp] - the streaming build system
-* [Breakdance](https://breakdance.github.io/breakdance/) - HTML to Markdown converter
-* [jQuery] - duh
+On Visual Studio Code you need to choose the root Directory of The Project
+After open the project on your Favorite IDE
 
-And of course Dillinger itself is open source with a [public repository][dill]
- on GitHub.
+Type this command on your console/terminal (you must inside the Project Folder : PurchasingSystemServices).
+Please follows the step below :
 
-### Installation
-
-Dillinger requires [Node.js](https://nodejs.org/) v4+ to run.
-
-Install the dependencies and devDependencies and start the server.
-
+Step 1. 
+  - For Clean the Project
 ```sh
-$ cd dillinger
-$ npm install -d
-$ node app
+$ dotnet clean
+```
+Step 2. 
+  - Restores the dependencies and tools of a project.
+```sh
+$ dotnet restore
+```
+Step 3. 
+  - For Build the Project
+```sh
+$ dotnet build
 ```
 
-For production environments...
+After that, you need to make sure your Application Setting file (appsettings.json) as follows :
 
-```sh
-$ npm install --production
-$ NODE_ENV=production node app
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "ConnectionStrings": {
+    "PgsqlConnection": "User ID=purchasingsysusr;Password=PurchasingSys1234!@#$;Server=localhost;Port=5432;Database=purchasingsysdb"
+  },
+  "AllowedHosts": "*"
+}
+
 ```
 
-### Plugins
+Please make sure your Connection String for the User ID (same with the Role that you create before), the Database (same with the Database that you create before) and the Password (same with the Role Password that you create before).
 
-Dillinger is currently extended with the following plugins. Instructions on how to use them in your own application are linked below.
+### Database Migration
 
-| Plugin | README |
-| ------ | ------ |
-| Dropbox | [plugins/dropbox/README.md][PlDb] |
-| GitHub | [plugins/github/README.md][PlGh] |
-| Google Drive | [plugins/googledrive/README.md][PlGd] |
-| OneDrive | [plugins/onedrive/README.md][PlOd] |
-| Medium | [plugins/medium/README.md][PlMe] |
-| Google Analytics | [plugins/googleanalytics/README.md][PlGa] |
-
-
-### Development
-
-Want to contribute? Great!
-
-Dillinger uses Gulp + Webpack for fast developing.
-Make a change in your file and instantaneously see your updates!
-
-Open your favorite Terminal and run these commands.
-
-First Tab:
-```sh
-$ node app
-```
-
-Second Tab:
-```sh
-$ gulp watch
-```
-
-(optional) Third:
-```sh
-$ karma test
-```
-#### Building for source
-For production release:
-```sh
-$ gulp build --prod
-```
-Generating pre-built zip archives for distribution:
-```sh
-$ gulp build dist --prod
-```
-### Docker
-Dillinger is very easy to install and deploy in a Docker container.
-
-By default, the Docker will expose port 8080, so change this within the Dockerfile if necessary. When ready, simply use the Dockerfile to build the image.
+In this case im using Entity Framework Code First concept. Because Entity Framework CLI is not shipped with .Net Framework 3.1, you need to Install the Entity Framework CLI with command below on your console/terminal : 
 
 ```sh
-cd dillinger
-docker build -t joemccann/dillinger:${package.json.version} .
+$ dotnet tool install --global dotnet-ef
 ```
-This will create the dillinger image and pull in the necessary dependencies. Be sure to swap out `${package.json.version}` with the actual version of Dillinger.
 
-Once done, run the Docker image and map the port to whatever you wish on your host. In this example, we simply map port 8000 of the host to port 8080 of the Docker (or whatever port was exposed in the Dockerfile):
+Migrate the Database with using the Entity Framework CLI.
+Please type this command on your terminal/console (you must inside the Project Folder : PurchasingSystemServices) :
 
 ```sh
-docker run -d -p 8000:8080 --restart="always" <youruser>/dillinger:${package.json.version}
+$ dotnet ef migrations add InitialCreate
 ```
 
-Verify the deployment by navigating to your server address in your preferred browser.
+Update the Database Migration for commiting the Database file that created by Entity Framework
+Please type this command on your terminal/console (you must inside the Project Folder : PurchasingSystemServices) :
 
 ```sh
-127.0.0.1:8000
+dotnet ef database update
 ```
 
-#### Kubernetes + Google Cloud
+Finally, you need to run your application.
+Please type this command on your terminal/console (you must inside the Project Folder : PurchasingSystemServices) :
 
-See [KUBERNETES.md](https://github.com/joemccann/dillinger/blob/master/KUBERNETES.md)
+```sh
+dotnet run
+```
 
+Your Application will be running on url : https://localhost:5001/api/{your-controller-name}
 
-### Todos
+> This Application is running on Default Port : 5001 and use HTTPS
 
- - Write MORE Tests
- - Add Night Mode
+You need to create the Self Signing Certificate.
+
+About the Self Signing Certificate you can read the documentation here : [Self Signing Certificate](https://devcenter.heroku.com/articles/ssl-certificate-self)
+
+You can create Self Signing Certificate with dotnet cli command as follows : 
+
+```sh
+dotnet dev-certs https --trust
+```
 
 License
 ----
@@ -187,4 +157,4 @@ License
 MIT
 
 
-**Free Software, Hell Yeah!**
+**Made with Love by Free Software**
