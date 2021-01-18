@@ -61,11 +61,14 @@ namespace PurchasingSystemServices.Controllers
                 _context.Users.Add(newUser);
                 _context.SaveChanges();
 
-                int maxId = _context.Users.Max(p => p.Id);
+                int userId = _context.Users
+                .Where(u => u.Email == userObejct.Email)
+                .Select(u => u.Id)
+                .SingleOrDefault();
 
                 var newUserBalance = new UserBalance()
                 {
-                    UserId = maxId,
+                    UserId = userId,
                     BalanceAmount = 0,
                     Active = 1,
                     CreateBy = 1,
